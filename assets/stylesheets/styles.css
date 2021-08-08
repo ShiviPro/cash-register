@@ -1,5 +1,19 @@
+:root {
+  --black: #2c3e50;
+  --white: #dff9fb;
+  --blue: #8ec5fc;
+  --pink: #e0c3fc;
+}
+
+html {
+  height: 100vh;
+}
+
 body {
   text-align: center;
+  background-color: #8ec5fc;
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+  color: var(--black);
 }
 
 .brand-name {
@@ -26,32 +40,53 @@ body {
   padding: 10px;
   width: 400px;
   text-align: center;
-  border: 2px solid black;
+  border: 2px solid var(--black);
   border-radius: 10px;
   outline: none;
   font-size: 1.5rem;
+  background-color: var(--white);
 }
 
 .check-btn {
   margin: 20px;
   padding: 10px 20px;
   font-size: 1.4rem;
-  border: 2px solid black;
+  border: 2px solid var(--black);
   border-radius: 10px;
   outline: none;
+  background-color: var(--pink);
+  transition: background-color 300ms;
+}
+
+.check-btn:hover {
+  background-color: var(--purple);
 }
 
 table {
   border-collapse: collapse;
   margin: 0 auto;
   font-size: 1.5rem;
+  animation: fadeIn 400ms;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 table,
 tr,
 th,
 td {
-  border: 2px solid black;
+  border: 2px solid var(--black);
+}
+
+th {
+  background-color: var(--pink);
 }
 
 th,
