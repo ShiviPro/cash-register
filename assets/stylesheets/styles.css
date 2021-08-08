@@ -1,1 +1,61 @@
+body {
+  text-align: center;
+}
 
+.brand-name {
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+.hero-txt {
+  font-size: 1.5rem;
+  font-weight: 400;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.bill__heading,
+.cash-given__heading,
+.return-change__heading {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.bill__amt,
+.cash-given__amt {
+  padding: 10px;
+  width: 400px;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1.5rem;
+}
+
+.check-btn {
+  margin: 20px;
+  padding: 10px 20px;
+  font-size: 1.4rem;
+  border: 2px solid black;
+  border-radius: 10px;
+  outline: none;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  font-size: 1.5rem;
+}
+
+table,
+tr,
+th,
+td {
+  border: 2px solid black;
+}
+
+th,
+td {
+  width: 100px;
+  padding: 10px;
+}
