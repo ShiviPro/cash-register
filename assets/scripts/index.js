@@ -44,6 +44,7 @@ returnChangeDiv.innerHTML = `
     </table>
     `;
 let invalidInputMsg = document.createElement("h3");
+invalidInputMsg.classList.add("invalid-msg");
 
 let notes = [2000, 500, 100, 20, 10, 5, 1];
 
@@ -68,9 +69,11 @@ checkBtn.addEventListener("click", (event) => {
   billVal = parseInt(billVal);
   cashGivenVal = parseInt(cashGivenVal);
 
-  while (invalidInputMsg.isConnected) invalidInputMsg.remove();
+  while (document.querySelectorAll(".invalid-msg").length !== 0)
+    invalidInputMsg.remove();
 
-  while (returnChangeDiv.isConnected) returnChangeDiv.remove();
+  while (document.querySelectorAll(".return-change").length !== 0)
+    returnChangeDiv.remove();
 
   if (cashGivenVal < billVal) {
     invalidInputMsg.innerText =
