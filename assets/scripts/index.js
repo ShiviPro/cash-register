@@ -54,8 +54,9 @@ billAmt.addEventListener("input", (event) => {
     content.appendChild(checkBtn);
     isBillEntered = true;
   }
-  if (event.target.value === "") {
+  if (event.target.value === "" || parseInt(event.target.value) <= 0) {
     cashGivenDiv.remove();
+    checkBtn.remove();
     returnChangeDiv.remove();
     invalidInputMsg.remove();
     isBillEntered = false;
