@@ -1,20 +1,20 @@
-let content = document.querySelector("#content");
-let billAmt = document.querySelector("#bill__amt");
+const content = document.querySelector("#content");
+const billAmt = document.querySelector("#bill__amt");
 
 let isBillEntered = false;
 
-let cashGivenDiv = document.createElement("div");
+const cashGivenDiv = document.createElement("div");
 cashGivenDiv.classList.add("cash-given");
 cashGivenDiv.innerHTML = `
 <h2 class="cash-given__heading">Cash Given</h2>
 <input class="cash-given__amt" id="cash-given__amt" type="number"/>
 `;
 
-let checkBtn = document.createElement("button");
+const checkBtn = document.createElement("button");
 checkBtn.classList.add("check-btn");
 checkBtn.innerText = "Check";
 
-let returnChangeDiv = document.createElement("div");
+const returnChangeDiv = document.createElement("div");
 returnChangeDiv.classList.add("return-change");
 returnChangeDiv.innerHTML = `
     <h2 class="return-change__heading">Return Change</h2>
@@ -43,12 +43,12 @@ returnChangeDiv.innerHTML = `
         </tbody>
     </table>
     `;
-let invalidInputMsg = document.createElement("h3");
+const invalidInputMsg = document.createElement("h3");
 invalidInputMsg.classList.add("invalid-msg");
 
-let notes = [2000, 500, 100, 20, 10, 5, 1];
+const notes = [2000, 500, 100, 20, 10, 5, 1];
 
-billAmt.addEventListener("input", (event) => {
+billAmt.addEventListener("input", event => {
   if (event.target.value > 0 && !isBillEntered) {
     content.appendChild(cashGivenDiv);
     content.appendChild(checkBtn);
@@ -63,12 +63,11 @@ billAmt.addEventListener("input", (event) => {
   }
 });
 
-checkBtn.addEventListener("click", (event) => {
-  let billVal = document.querySelector("#bill__amt").value;
-  let cashGivenVal = document.querySelector("#cash-given__amt").value;
-
-  billVal = parseInt(billVal);
-  cashGivenVal = parseInt(cashGivenVal);
+checkBtn.addEventListener("click", event => {
+  const billVal = parseInt(document.querySelector("#bill__amt").value);
+  const cashGivenVal = parseInt(
+    document.querySelector("#cash-given__amt").value
+  );
 
   while (document.querySelectorAll(".invalid-msg").length !== 0)
     invalidInputMsg.remove();
@@ -87,7 +86,7 @@ checkBtn.addEventListener("click", (event) => {
     content.appendChild(returnChangeDiv);
 
     for (let noteIndex = 0; noteIndex < notes.length; noteIndex++) {
-      let note = notes[noteIndex];
+      const note = notes[noteIndex];
       document.querySelector("#freq-" + note).innerText = "";
     }
 
@@ -97,14 +96,14 @@ checkBtn.addEventListener("click", (event) => {
     for (let noteIndex = 0; noteIndex < notes.length; noteIndex++) {
       if (changeToBeReturned === 0) break;
 
-      let note = notes[noteIndex];
-      let changeLeft = changeToBeReturned % note;
+      const note = notes[noteIndex];
+      const changeLeft = changeToBeReturned % note;
 
       // check if note's value is greater than the change
       if (changeLeft === changeToBeReturned) continue;
 
-      let wholeDividend = changeToBeReturned - changeLeft;
-      let freq = wholeDividend / note;
+      const wholeDividend = changeToBeReturned - changeLeft;
+      const freq = wholeDividend / note;
       console.log("Note: " + note);
       console.log("Freq: " + freq);
       changeToBeReturned = changeLeft;
